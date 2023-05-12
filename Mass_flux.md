@@ -1,5 +1,5 @@
 # Mass Balance Analysis
-## Oldany Site - Loch duart
+## Site A
 
 
 ```python
@@ -11,7 +11,7 @@ import datetime as dt
 
 ```python
 # read tuflowfv mass balance output csv
-mass_bal = r'K:\scratchers\A12028_LochDuart\high_res\mass_bal\mass_bal_dis_006n_002_MASS.csv'
+mass_bal = r'K:\scratchers\SiteA\high_res\mass_bal\mass_bal_dis_006n_002_MASS.csv'
 df_mass = pd.read_csv(mass_bal, delimiter=',', usecols=['TIME', 'VOLUME [m^3]', 'TRACE_1_MASS [units]'])
 
 # head of mass_bal dataframe
@@ -51,7 +51,7 @@ print(df_mass.head())
 
 ```python
 # read tuflowfv flux output csv
-flux= r'K:\scratchers\A12028_LochDuart\high_res\mass_bal\mass_bal_dis_006n_002_FLUX.csv'
+flux= r'K:\scratchers\SiteA\high_res\mass_bal\mass_bal_dis_006n_002_FLUX.csv'
 df_flux = pd.read_csv(flux, delimiter=',', usecols=['TIME', 'NS1_FLOW [m^3 s^-1]', 'NS2_FLOW [m^3 s^-1]', 'NS1_TRACE_1_FLUX [units m^3 s^-1]', 'NS2_TRACE_1_FLUX [units m^3 s^-1]'])
 # head of flux dataframe
 print(df_flux.head())
@@ -438,7 +438,7 @@ plt.tight_layout()
 
 # Show the figure
 plt.show()
-fig.savefig('figures/Oldany_LD_Mass_Balance_highdif1.png',dpi=300)
+fig.savefig('figures/SiteA_Mass_Balance_highdif1.png',dpi=300)
 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
 
 ```
@@ -486,7 +486,7 @@ plt.tight_layout()
 
 # Show the figure
 plt.show()
-fig.savefig('figures/Oldany_LD_Mass_Balance_highdif2.png',dpi=300)
+fig.savefig('figures/SiteA_Mass_Balance_highdif2.png',dpi=300)
 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
 
 ```
