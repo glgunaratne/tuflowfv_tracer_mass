@@ -472,7 +472,7 @@ plt.tight_layout()
 
 # Show the figure
 plt.show()
-fig.savefig('figures/SiteA_Mass_Balance_highdif1.png',dpi=300)
+#fig.savefig('figures/SiteA_Mass_Balance_highdif1.png',dpi=300)
 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
 
 ```
@@ -481,106 +481,6 @@ fig.savefig('figures/SiteA_Mass_Balance_highdif1.png',dpi=300)
     
 ![png](Mass_flux_files/Mass_flux_40_0.png)
     
-
-
-
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    Cell In[39], line 30
-         28 # Show the figure
-         29 plt.show()
-    ---> 30 fig.savefig('figures/SiteA_Mass_Balance_highdif1.png',dpi=300)
-         31 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\figure.py:3285, in Figure.savefig(self, fname, transparent, **kwargs)
-       3281     for ax in self.axes:
-       3282         stack.enter_context(
-       3283             ax.patch._cm_set(facecolor='none', edgecolor='none'))
-    -> 3285 self.canvas.print_figure(fname, **kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backend_bases.py:2338, in FigureCanvasBase.print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)
-       2334 try:
-       2335     # _get_renderer may change the figure dpi (as vector formats
-       2336     # force the figure dpi to 72), so we need to set it again here.
-       2337     with cbook._setattr_cm(self.figure, dpi=dpi):
-    -> 2338         result = print_method(
-       2339             filename,
-       2340             facecolor=facecolor,
-       2341             edgecolor=edgecolor,
-       2342             orientation=orientation,
-       2343             bbox_inches_restore=_bbox_inches_restore,
-       2344             **kwargs)
-       2345 finally:
-       2346     if bbox_inches and restore_bbox:
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backend_bases.py:2204, in FigureCanvasBase._switch_canvas_and_return_print_method.<locals>.<lambda>(*args, **kwargs)
-       2200     optional_kws = {  # Passed by print_figure for other renderers.
-       2201         "dpi", "facecolor", "edgecolor", "orientation",
-       2202         "bbox_inches_restore"}
-       2203     skip = optional_kws - {*inspect.signature(meth).parameters}
-    -> 2204     print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
-       2205         *args, **{k: v for k, v in kwargs.items() if k not in skip}))
-       2206 else:  # Let third-parties do as they see fit.
-       2207     print_method = meth
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\_api\deprecation.py:410, in delete_parameter.<locals>.wrapper(*inner_args, **inner_kwargs)
-        400     deprecation_addendum = (
-        401         f"If any parameter follows {name!r}, they should be passed as "
-        402         f"keyword, not positionally.")
-        403     warn_deprecated(
-        404         since,
-        405         name=repr(name),
-       (...)
-        408                  else deprecation_addendum,
-        409         **kwargs)
-    --> 410 return func(*inner_args, **inner_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backends\backend_agg.py:517, in FigureCanvasAgg.print_png(self, filename_or_obj, metadata, pil_kwargs, *args)
-        468 @_api.delete_parameter("3.5", "args")
-        469 def print_png(self, filename_or_obj, *args,
-        470               metadata=None, pil_kwargs=None):
-        471     """
-        472     Write the figure to a PNG file.
-        473 
-       (...)
-        515         *metadata*, including the default 'Software' key.
-        516     """
-    --> 517     self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backends\backend_agg.py:464, in FigureCanvasAgg._print_pil(self, filename_or_obj, fmt, pil_kwargs, metadata)
-        459 """
-        460 Draw the canvas, then save it using `.image.imsave` (to which
-        461 *pil_kwargs* and *metadata* are forwarded).
-        462 """
-        463 FigureCanvasAgg.draw(self)
-    --> 464 mpl.image.imsave(
-        465     filename_or_obj, self.buffer_rgba(), format=fmt, origin="upper",
-        466     dpi=self.figure.dpi, metadata=metadata, pil_kwargs=pil_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\image.py:1667, in imsave(fname, arr, vmin, vmax, cmap, format, origin, dpi, metadata, pil_kwargs)
-       1665 pil_kwargs.setdefault("format", format)
-       1666 pil_kwargs.setdefault("dpi", (dpi, dpi))
-    -> 1667 image.save(fname, **pil_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\PIL\Image.py:2428, in Image.save(self, fp, format, **params)
-       2426         fp = builtins.open(filename, "r+b")
-       2427     else:
-    -> 2428         fp = builtins.open(filename, "w+b")
-       2430 try:
-       2431     save_handler(self, fp, filename)
-    
-
-    FileNotFoundError: [Errno 2] No such file or directory: 'figures/SiteA_Mass_Balance_highdif1.png'
 
 
 ## Net tracer mass including fluxes at the boundary
@@ -620,7 +520,7 @@ plt.tight_layout()
 
 # Show the figure
 plt.show()
-fig.savefig('figures/SiteA_Mass_Balance_highdif2.png',dpi=300)
+#fig.savefig('figures/SiteA_Mass_Balance_highdif2.png',dpi=300)
 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
 
 ```
@@ -632,131 +532,13 @@ fig.savefig('figures/SiteA_Mass_Balance_highdif2.png',dpi=300)
 
 
 
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    Cell In[40], line 34
-         32 # Show the figure
-         33 plt.show()
-    ---> 34 fig.savefig('figures/SiteA_Mass_Balance_highdif2.png',dpi=300)
-         35 #fig.savefig('my_figure.png', dpi=300, bbox_inches='tight')
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\figure.py:3285, in Figure.savefig(self, fname, transparent, **kwargs)
-       3281     for ax in self.axes:
-       3282         stack.enter_context(
-       3283             ax.patch._cm_set(facecolor='none', edgecolor='none'))
-    -> 3285 self.canvas.print_figure(fname, **kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backend_bases.py:2338, in FigureCanvasBase.print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, pad_inches, bbox_extra_artists, backend, **kwargs)
-       2334 try:
-       2335     # _get_renderer may change the figure dpi (as vector formats
-       2336     # force the figure dpi to 72), so we need to set it again here.
-       2337     with cbook._setattr_cm(self.figure, dpi=dpi):
-    -> 2338         result = print_method(
-       2339             filename,
-       2340             facecolor=facecolor,
-       2341             edgecolor=edgecolor,
-       2342             orientation=orientation,
-       2343             bbox_inches_restore=_bbox_inches_restore,
-       2344             **kwargs)
-       2345 finally:
-       2346     if bbox_inches and restore_bbox:
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backend_bases.py:2204, in FigureCanvasBase._switch_canvas_and_return_print_method.<locals>.<lambda>(*args, **kwargs)
-       2200     optional_kws = {  # Passed by print_figure for other renderers.
-       2201         "dpi", "facecolor", "edgecolor", "orientation",
-       2202         "bbox_inches_restore"}
-       2203     skip = optional_kws - {*inspect.signature(meth).parameters}
-    -> 2204     print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
-       2205         *args, **{k: v for k, v in kwargs.items() if k not in skip}))
-       2206 else:  # Let third-parties do as they see fit.
-       2207     print_method = meth
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\_api\deprecation.py:410, in delete_parameter.<locals>.wrapper(*inner_args, **inner_kwargs)
-        400     deprecation_addendum = (
-        401         f"If any parameter follows {name!r}, they should be passed as "
-        402         f"keyword, not positionally.")
-        403     warn_deprecated(
-        404         since,
-        405         name=repr(name),
-       (...)
-        408                  else deprecation_addendum,
-        409         **kwargs)
-    --> 410 return func(*inner_args, **inner_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backends\backend_agg.py:517, in FigureCanvasAgg.print_png(self, filename_or_obj, metadata, pil_kwargs, *args)
-        468 @_api.delete_parameter("3.5", "args")
-        469 def print_png(self, filename_or_obj, *args,
-        470               metadata=None, pil_kwargs=None):
-        471     """
-        472     Write the figure to a PNG file.
-        473 
-       (...)
-        515         *metadata*, including the default 'Software' key.
-        516     """
-    --> 517     self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\backends\backend_agg.py:464, in FigureCanvasAgg._print_pil(self, filename_or_obj, fmt, pil_kwargs, metadata)
-        459 """
-        460 Draw the canvas, then save it using `.image.imsave` (to which
-        461 *pil_kwargs* and *metadata* are forwarded).
-        462 """
-        463 FigureCanvasAgg.draw(self)
-    --> 464 mpl.image.imsave(
-        465     filename_or_obj, self.buffer_rgba(), format=fmt, origin="upper",
-        466     dpi=self.figure.dpi, metadata=metadata, pil_kwargs=pil_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\matplotlib\image.py:1667, in imsave(fname, arr, vmin, vmax, cmap, format, origin, dpi, metadata, pil_kwargs)
-       1665 pil_kwargs.setdefault("format", format)
-       1666 pil_kwargs.setdefault("dpi", (dpi, dpi))
-    -> 1667 image.save(fname, **pil_kwargs)
-    
-
-    File ~\.conda\envs\coastal\lib\site-packages\PIL\Image.py:2428, in Image.save(self, fp, format, **params)
-       2426         fp = builtins.open(filename, "r+b")
-       2427     else:
-    -> 2428         fp = builtins.open(filename, "w+b")
-       2430 try:
-       2431     save_handler(self, fp, filename)
-    
-
-    FileNotFoundError: [Errno 2] No such file or directory: 'figures/SiteA_Mass_Balance_highdif2.png'
-
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
 ```python
 
 ```
 
 ### Other plots
+
+Tracer Flux through nodestring1
 
 
 ```python
@@ -771,14 +553,11 @@ plt.show()
 
 
     
-![png](Mass_flux_files/Mass_flux_49_0.png)
+![png](Mass_flux_files/Mass_flux_46_0.png)
     
 
 
-
-```python
-
-```
+Tracer Flux through nodestring2
 
 
 ```python
@@ -794,9 +573,11 @@ plt.show()
 
 
     
-![png](Mass_flux_files/Mass_flux_51_0.png)
+![png](Mass_flux_files/Mass_flux_48_0.png)
     
 
+
+Tracer flow rates
 
 
 ```python
@@ -811,7 +592,7 @@ plt.show()
 
 
     
-![png](Mass_flux_files/Mass_flux_52_0.png)
+![png](Mass_flux_files/Mass_flux_50_0.png)
     
 
 
@@ -828,7 +609,7 @@ plt.show()
 
 
     
-![png](Mass_flux_files/Mass_flux_53_0.png)
+![png](Mass_flux_files/Mass_flux_51_0.png)
     
 
 
@@ -845,33 +626,6 @@ plt.show()
 
 
     
-![png](Mass_flux_files/Mass_flux_54_0.png)
+![png](Mass_flux_files/Mass_flux_52_0.png)
     
 
-
-Concentration based on mass excluding fluxes at the boundary
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
